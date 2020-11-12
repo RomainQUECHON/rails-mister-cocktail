@@ -1,0 +1,32 @@
+<div class="container">
+  <h1>This is a cocktail detail page</h1>
+    <h2><%= @cocktail.name %></h2>
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-4">
+          <h4>Add a dose:</h4>
+          <%= simple_form_for [ @cocktail, @dose ] do |d| %>
+            <%= d.input :description, placeholder: "Add a dose description" %>
+            <%= d.submit "Add", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-4">
+          <h4>Add a ingredient:</h4>
+          <%= simple_form_for [ @cocktail, @ingredient ] do |i| %>
+            <%= i.input :name, placeholder: "Add an ingredient" %>
+            <%= i.submit "Add", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+
+
+    <%= link_to "Back to cocktails", cocktails_path, class:"btn btn-dark" %>
+</div>
