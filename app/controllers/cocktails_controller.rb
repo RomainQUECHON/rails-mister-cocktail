@@ -4,9 +4,14 @@ class CocktailsController < ApplicationController
   end
 
   def show
-    @cocktail = Cocktail.find(params[:id])
     @dose = Dose.new
-    @ingredient = Ingredient.new
+    @cocktail = Cocktail.find(params[:id])
+    @dose.cocktail = @cocktail
+    #@ingredient = Ingredient.new
+    #Pas besoin de créer une nouvelle instance @ingredient
+    #car la table ingredient est déjà peuplée de 3 élements via le seed
+    #Et on a paramétré d.association dans cocktails/show.html.erb pour contraindre l'utilisateur à 3 choix
+    #Par contre la table dose est vide, donc besoin de créer une instance dose
   end
 
   def new
