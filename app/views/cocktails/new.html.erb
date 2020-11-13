@@ -1,9 +1,9 @@
 <div class="container">
-  <%= form_for [@cocktail] do |c| %>
-    <%= c.label :name %>
-    <%= c.text_field :name  %>
-    <%= c.submit  %>
+  <h1>Add a new Cocktail</h1>
+  <%= simple_form_for [ @cocktail ] do |f| %>
+    <%= f.input :name %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
   <% end %>
-
-  <%= link_to "Back to cocktails", root_path, class:"btn btn-dark" %>
+  <%= link_to "Back to Cocktail List", root_path, class: "btn-dark" %>
 </div>

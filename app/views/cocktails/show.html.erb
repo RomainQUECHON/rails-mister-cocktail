@@ -1,6 +1,8 @@
 <div class="container">
   <h1>This is a cocktail detail page</h1>
     <h2><%= @cocktail.name %></h2>
+    <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+
 
     <div class="container-doses-description">
     <% @cocktail.doses.each do |dose| %>

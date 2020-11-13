@@ -4,7 +4,7 @@ class CocktailsController < ApplicationController
   end
 
   def show
-    @dose = Dose.new
+    @dose = Dose.new #Sert pour initialiser le formulaire 'Dose'
     @cocktail = Cocktail.find(params[:id])
     @dose.cocktail = @cocktail
     #@ingredient = Ingredient.new
@@ -29,6 +29,6 @@ class CocktailsController < ApplicationController
 
   private
   def cocktail_params
-    params.require(:cocktail).permit([:name])
+    params.require(:cocktail).permit(:name, :photo)
   end
 end
