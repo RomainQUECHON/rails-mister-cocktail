@@ -1,19 +1,25 @@
-<div class="container">
-  <h1>This is a cocktail detail page</h1>
-    <h2><%= @cocktail.name %></h2>
-    <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+<div class="card-cocktail">
+  <h1><%= @cocktail.name %></h1>
 
 
-    <div class="container-doses-description">
-    <% @cocktail.doses.each do |dose| %>
-      <p><%= dose.description  %></p>
+
+
+  <div class="card-cocktail-infos justify-content-center">
+    <div>
+      <%= cl_image_tag @cocktail.photo, height: 150, width: 200, crop: :fill %>
+      <% @cocktail.doses.each do |dose| %>
+    </div>
+    <div>
+      <p><%= dose.description %></p>
+      <p><%= dose.ingredient.name %></p>
       <%= link_to "delete",dose_path(id: dose.id), method: :delete, data: { confirm: "Are you sure?" } %>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-4">
+        <div class="col-6">
           <h4>Add a dose:</h4>
           <%= simple_form_for [ @cocktail, @dose ] do |d| %>
             <%= d.input :description, placeholder: "Add a dose description" %>
@@ -24,6 +30,5 @@
       </div>
     </div>
 
-
     <%= link_to "Back to cocktails", root_path, class:"btn btn-dark" %>
-</div>
+
