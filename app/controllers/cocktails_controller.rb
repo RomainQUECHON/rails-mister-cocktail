@@ -19,6 +19,7 @@ class CocktailsController < ApplicationController
   end
 
   def create
+    raise
     @cocktail = Cocktail.new(cocktail_params)
     if @cocktail.save
       redirect_to root_path
